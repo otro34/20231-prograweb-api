@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const hostname = process.env.HOSTNAME || '127.0.0.1'
-const username = process.env.USERNAME || 'postgres'
+const username = process.env.BDUSER || 'postgres'
 const password = process.env.PASSWORD || '123'
 const database = process.env.DATABASE || 'cursos'
 const port = process.env.DBPORT || 5432
@@ -15,6 +15,7 @@ const sequelize = new Sequelize(database, username, password, {
     port,
     dialect: dialect,
     operatorAliases: false,
+    ssl: {rejectUnauthorized: false},
     pool: {
         max: 10,
         min: 0,

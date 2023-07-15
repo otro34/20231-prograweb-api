@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" ",
     "dev": "nodemon index.js",
     "init": "node index.js --init",
-    "start": "node index.js --init"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
