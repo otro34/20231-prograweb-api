@@ -1,9 +1,11 @@
 import Curso from '../models/curso.js'
+import Docente from '../models/docente.js'
 
 const findAll = async () => {
     try {
-
-        return await Curso.findAll();
+        const result = await Curso.findAll({include: Docente});
+        console.log(result)
+        return result;
 
     } catch(err) {
         console.error(err)

@@ -3,7 +3,10 @@ import Docente from '../models/docente.js'
 const findAll = async () => {
     try {
 
-        return await Docente.findAll();
+        const result = await Docente.findAll();
+        console.debug(result)
+
+        return result;
 
     } catch(err) {
         console.error(err)
@@ -79,6 +82,6 @@ const remove = async (id) => {
 }
 
 
-const DocenteRepository = { findAll, create, findOne,update, remove };
+const DocentesRepository = { findAll, create, findOne,update, remove };
 
-export default DocenteRepository; 
+export default DocentesRepository; 

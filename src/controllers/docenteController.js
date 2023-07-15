@@ -1,51 +1,46 @@
 import DocentesRepository from "../repository/docenteRepository.js";
 
-const findAll = (req, res) => {
-    const result = DocentesRepository.findAll();
+const findAll = async (req, res) => {
+    const result = await DocentesRepository.findAll();
 
-    if (result)
-        return res.status(200).json(result);
-    else
-        return res.status(500).json({ message: 'Ha ocurrido un error'})
+    return sendResponse(result, res);
 }
 
-const findOne = (req, res) => {
+const findOne = async (req, res) => {
     const id = req.params.id;
-    const result = DocentesRepository.findOne(id);
+    const result = await DocentesRepository.findOne(id);
 
-    if (result)
-        return res.status(200).json(result);
-    else
-        return res.status(500).json({ message: 'Ha ocurrido un error'})
+    return sendResponse(result, res);
 }
 
-const create = (req, res) => {
+const create = async (req, res) => {
     
-    const result = DocentesRepository.create(req.body);
+    const result = await DocentesRepository.create(req.body);
 
-    if (result)
-        return res.status(200).json(result);
-    else
-        return res.status(500).json({ message: 'Ha ocurrido un error'})
+    return sendResponse(result, res);
 }
 
-const update = (req,res) => {
-    DocentesRepository.update(req.body)
+const update = async (req,res) => {
+    const result = await DocentesRepository.update(req.body)
 
-    return res.status(200).json(req.body);
+    return sendResponse(result, res);
 }
 
-const remove = (req, res) => {
+const remove = async (req, res) => {
 
     const id = req.params.id;
 
-    const result = DocentesRepository.remove(id)
+    const result = await DocentesRepository.remove(id)
 
+    return sendResponse(result, res);
+}
+
+const sendResponse = (result, res) => {
     if (result)
         return res.status(200).json(result);
     else
         return res.status(500).json({ message: 'Ha ocurrido un error'})
-}
+} 
 
 const DocenteController = { findAll, create, findOne, update, remove }
 
