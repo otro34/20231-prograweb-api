@@ -5,8 +5,8 @@ POST http://localhost:3001/docentes/
 Content-Type: application/json
 
 {
-    "nombre": "Juan", 
-    "apellido": "Gomez"
+    "nombre": "Gustavo", 
+    "apellido": "Kaminski"
 }
 ###
 
@@ -14,9 +14,9 @@ PUT http://localhost:3001/docentes/
 Content-Type: application/json
 
 {
-    "id": 3, 
-    "nombre": "Thalia", 
-    "apellido": "Sanches"
+    "id": 2, 
+    "nombre": "Sandra", 
+    "apellido": "Novinskii"
 }
 
 ###

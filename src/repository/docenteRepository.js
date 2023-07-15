@@ -1,9 +1,10 @@
 import Docente from '../models/docente.js'
+import Curso from '../models/curso.js';
 
 const findAll = async () => {
     try {
 
-        const result = await Docente.findAll();
+        const result = await Docente.findAll({include: Curso});
         console.debug(result)
 
         return result;
@@ -45,9 +46,9 @@ const findOne = async (id) => {
 
 const update = async (docente) => {
     try {
-        const founddocente =  await Docente.update({
+        const founddocente =  await Docente.findOne({
             where: {
-                id: curso.id
+                id: docente.id
             }
         })
 

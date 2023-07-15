@@ -16,11 +16,11 @@ PUT http://localhost:3001/cursos/
 Content-Type: application/json
 
   {
-    "id": 2,
+    "id": 3,
     "nombre": "Programacion Web",
     "nivel": 5,
-    "carrera": "Sistemas",
-    "idDocente": 2
+    "carrera": "Sistemas2",
+    "idDocente": 1
   }
 
 ###

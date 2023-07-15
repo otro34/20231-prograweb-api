@@ -44,7 +44,7 @@ const findOne = async (id) => {
 
 const update = async (curso) => {
     try {
-        const foundCurso =  await Curso.update({
+        const foundCurso =  await Curso.findOne({
             where: {
                 id: curso.id
             }

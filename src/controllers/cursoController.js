@@ -1,4 +1,3 @@
-import DocentesRepository from "../repository/docenteRepository.js";
 import CursosRepository from "../repository/cursoRepository.js";
 
 const findAll = async (req, res) => {
@@ -9,7 +8,7 @@ const findAll = async (req, res) => {
 
 const findOne = async (req, res) => {
     const id = req.params.id;
-    const result = CursosRepository.findOne(id);
+    const result = await CursosRepository.findOne(id);
 
     return sendResponse(result, res);
 }
@@ -22,7 +21,7 @@ const create = async (req, res) => {
 }
 
 const update = async (req,res) => {
-    const result = CursosRepository.update(req.body)
+    const result = await CursosRepository.update(req.body)
 
     return sendResponse(result, res);
 }
@@ -31,7 +30,7 @@ const remove = async (req, res) => {
 
     const id = req.params.id;
 
-    const result = CursosRepository.remove(id)
+    const result = await CursosRepository.remove(id)
 
     return sendResponse(result, res);
 }
